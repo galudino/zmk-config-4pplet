@@ -24,9 +24,9 @@
 				bindings = <
 	&kp GRAVE		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&kp none	&kp BKSP
 	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BKSP
-	&lt LAYER_FN ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo FN1
-	&kp LCTL	&none   &kp LALT	&kp LGUI			&kp SPC		&none  	&none			&kp  RGUI 	&kp RALT	&kp  RCTL
+	&lt LAYER_FN ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SEMICOLON  	&kp  QUOT   &none		&kp RET
+	&kp LSHIFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  KP_COMMA &kp  KP_DOT  	&kp  FSLH	&kp RSHIFT 	&mo FN1
+	&kp LCTRL	&none   &kp LALT	&kp LGUI			&kp SPACE		&none  	&none			&kp  RGUI 	&kp RALT	&kp  RCTRL
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -35,9 +35,9 @@
 				bindings = <
 	&kp GRAVE		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&kp none	&kp BKSP
 	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BKSP
-	&lt FN1 ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo FN1
-	&kp LCTL	&none   &kp LGUI	&kp LALT			&kp SPC		&none  	&none			&kp  RALT 	&kp K_APP	&kp  RCTL
+	&lt FN1 ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SEMICOLON  	&kp  QUOT   &none		&kp RET
+	&kp LSHIFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  KP_COMMA &kp  KP_DOT  	&kp  FSLH	&kp RSHIFT 	&mo FN1
+	&kp LCTRL	&none   &kp LGUI	&kp LALT			&kp SPACE		&none  	&none			&kp  RALT 	&kp K_APP	&kp  RCTRL
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
