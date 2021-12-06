@@ -37,7 +37,7 @@
 	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BKSP
 	&lt FN1 ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
 	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo FN1
-	&kp LCTL	&none   &kp LGUI	&kp LALT			&kp SPC		&none  	&none			&kp  RALT 	&kp MENU	&kp  RCTL
+	&kp LCTL	&none   &kp LGUI	&kp LALT			&kp SPC		&none  	&none			&kp  RALT 	&kp K_APP	&kp  RCTL
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
