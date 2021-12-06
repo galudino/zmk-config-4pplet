@@ -45,9 +45,9 @@
 		};
 		settings_layer {
 				bindings = <
-	&tog SETTINGS		&bootloader 	&reset			&none			&none	&none 	&none 	&none 		&none	&none	&none			&none			&none  			&none			&none
-	&none 	&bt BT_CLR  &bt BT_SEL 0  	&bt BT_SEL 1   	&bt BT_SEL 2	&bt BT_SEL 3   	&bt BT_SEL 4   		&none	&none   &none			&none   		&none			&none			&none
-	&none	&tog 0   	&tog 1   		&tog 2   		&tog SETTINGS   &none   		&none   			&none   &none	&none   		&none			&none			&none   		&none
+	&tog SETTINGS		&bootloader 	&reset			&none			&none	&none 	&none 	&none 		&none	&none	&none			&none			&none  			&none			&out OUT_USB
+	&none 	&bt BT_CLR  &bt BT_SEL 0  	&bt BT_SEL 1   	&bt BT_SEL 2	&bt BT_SEL 3   	&bt BT_SEL 4   		&none	&none   &none			&none   		&none			&none			&out OUT_BLE
+	&none	&tog 0   	&tog 1   		&tog 2   		&tog SETTINGS   &none   		&none   			&none   &none	&none   		&none			&none			&none   		&out OUT_TOG
 	&none	&none		&rgb_ug RGB_TOG &rgb_ug RGB_BRD	&rgb_ug RGB_BRI &rgb_ug RGB_EFR &rgb_ug  RGB_EFF	&rgb_ug RGB_HUD	&rgb_ug RGB_HUI	&rgb_ug RGB_SAD	&rgb_ug RGB_SAI	&rgb_ug RGB_SPD	&rgb_ug RGB_SPI	&rgb_ug RGB_COLOR_HSB(128,100,100)
 	&none	&none    	&none							&none			&none			&none  			&none			&none 	&none	&none
 	&none
@@ -60,7 +60,7 @@
 	&trans			&bt BT_PRV  &kp UP   		&bt BT_NXT		&trans			&trans			&trans			&trans			&trans			&trans			&kp SLCK	&kp UP		&kp C_AL_LOCK	&kp DEL
 	&trans 		&kp LEFT   	&kp DOWN		&kp RIGHT		&kp K_MUTE		&trans			&kp KP_ASTERISK	&kp KP_SLASH	&kp HOME		&kp PG_UP		&kp LEFT	&kp RIGHT	&trans		&trans
 	&trans 			&trans   	&kp C_PREV   	&kp C_PP	 	&kp C_NEXT 		&kp C_VOL_DN	&kp C_VOL_UP	&kp KP_PLUS		&kp KP_MINUS	&kp END			&kp PG_DN	&kp DOWN	&trans 		&trans
-	&kp CLCK 			&trans   	&trans             				&trans			&tog SETTINGS			&trans  		&trans  		&trans			&kp K_APP			&trans
+	&kp CLCK 			&trans   	&trans             				&trans			&mo SETTINGS			&trans  		&trans  		&trans			&kp K_APP			&trans
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
