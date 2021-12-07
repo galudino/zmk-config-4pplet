@@ -5,8 +5,22 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define FN1 4
-#define SETTINGS 3
+enum bt_profile_type {
+	BT_PROFILE_IPHONE,			// My iPhone
+	BT_PROFILE_IPAD,			// My iPad Pro
+	BT_PROFILE_PC,				// My Windows work laptop
+	BT_PROFILE_MAC,				// My macOS personal laptop
+	BT_PROFILE_TEMP				// Temporary profile for a miscellaneous device		
+};
+
+enum layer_type {
+	LAYER_MAC,					// macOS-centric bottom row
+	LAYER_WIN, 					// Windows-centric bottom row
+	LAYER_WKL,					// Windows-centric bottom row with GUI keys disabled 
+	LAYER_SETTINGS, 			// Keyboard settings/configuration/profile switching
+	LAYER_FUNCTION				// Function key layer/missing keys
+};
+
 / {
 	keymap {
 		compatible = "zmk,keymap";
@@ -14,9 +28,9 @@
 			bindings = <
 	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
 	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
-	&lt FN1 ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo FN1
-	&kp LCTL 	 &none   &kp LALT				&kp LGUI			&kp SPC		&none  	&none			&kp  RGUI 	&kp RALT	&kp  RCTL
+	&lt LAYER_FUNCTION ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
+	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
+	&kp LCTL 	 &kp LALT   &kp LGUI				&none			&kp SPC		&none  	&none			&kp  RGUI 	&kp RALT	&kp  RCTL
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -25,9 +39,9 @@
 				bindings = <
 	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
 	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
-	&lt FN1 ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo FN1
-	&kp LCTL 	 &none   &kp LGUI				&kp LALT			&kp SPC		&none  	&none			&kp  RALT 	&kp K_APP	&kp  RCTL
+	&lt LAYER_FUNCTION ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
+	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
+	&kp LCTL 	 &kp LGUI   &kp LALT				&none			&kp SPC		&none  	&none			&kp  RALT 	&kp RGUI	&kp  RCTL
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -36,20 +50,20 @@
 				bindings = <
 	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
 	&kp TAB 	 &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
-	&lt FN1 ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo FN1
-	&kp LCTL 	 &none   	&none				&kp LALT		&kp SPC		&none  	&none			&kp  RALT 	&kp RGUI	&kp  RCTL
+	&lt LAYER_FUNCTION ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
+	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
+	&kp LCTL 	 &none   	&kp LALT				&none		&kp SPC		&none  	&none				&kp  RALT 	&none		&kp  RCTL
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 		settings_layer {
 				bindings = <
-	&tog SETTINGS		&bootloader 	&reset			&none			&none	&none 	&none 	&none 		&none	&none	&none			&none			&none  			&none			&out OUT_USB
-	&none 	&bt BT_CLR  &bt BT_SEL 0  	&bt BT_SEL 1   	&bt BT_SEL 2	&bt BT_SEL 3   	&bt BT_SEL 4   		&none	&none   &none			&none   		&none			&none			&out OUT_BLE
-	&none	&tog 0   	&tog 1   		&tog 2   		&tog SETTINGS   &none   		&none   			&none   &none	&none   		&none			&none			&none   		&out OUT_TOG
+	&tog LAYER_SETTINGS		&bootloader 	&reset			&none			&none	&none 	&none 	&none 		&none	&none	&none			&none			&none  			&none			&out OUT_USB
+	&none 	&bt BT_CLR  &bt BT_SEL BT_PROFILE_IPHONE  	&bt BT_SEL BT_PROFILE_IPAD  	&bt BT_SEL BT_PROFILE_PC	&bt BT_SEL BT_PROFILE_MAC  	&bt BT_SEL BT_PROFILE_TEMP  		&none	&none   &none			&none   		&none			&none			&out OUT_BLE
+	&none	&tog LAYER_MAC   	&tog LAYER_WIN   		&tog LAYER_WKL   		&tog LAYER_SETTINGS   &none   		&none   			&none   &none	&none   		&none			&none			&none   		&out OUT_TOG
 	&none	&none		&rgb_ug RGB_TOG &rgb_ug RGB_BRD	&rgb_ug RGB_BRI &rgb_ug RGB_EFR &rgb_ug  RGB_EFF	&rgb_ug RGB_HUD	&rgb_ug RGB_HUI	&rgb_ug RGB_SAD	&rgb_ug RGB_SAI	&rgb_ug RGB_SPD	&rgb_ug RGB_SPI	&rgb_ug RGB_COLOR_HSB(128,100,100)
-	&none	&none    	&none							&none			&none			&none  			&none			&none 	&none	&none
+	&none	&none    	&none			&none					&none		&none  	&none			&none 		&none		&none
 	&none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
