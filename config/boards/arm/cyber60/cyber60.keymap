@@ -11,22 +11,6 @@
 #define LAYER_WIN 1
 #define LAYER_MAC 0
 
-enum layer_type {
-	LAYER_MAC,
-	LAYER_WIN,
-	LAYER_WKL,
-	LAYER_SETTINGS,
-	LAYER_FUNCTION
-};
-
-enum bt_profile_type {
-	BT_PROFILE_PHONE,
-	BT_PROFILE_TABLET,
-	BT_PROFILE_PC,
-	BT_PROFILE_MAC,
-	BT_PROFILE_TEMP
-};
-
 / {
 	keymap {
 		compatible = "zmk,keymap";
@@ -66,7 +50,7 @@ enum bt_profile_type {
 		settings_layer {
 				bindings = <
 	&tog LAYER_SETTINGS		&bootloader 	&reset			&none			&none	&none 	&none 	&none 		&none	&none	&none			&none			&none  			&none			&out OUT_USB
-	&none 	&bt BT_CLR  &bt BT_SEL BT_PROFILE_PHONE  	&bt BT_SEL BT_PROFILE_TABLET   	&bt BT_SEL BT_PROFILE_PC	&bt BT_SEL BT_PROFILE_MAC   	&bt BT_SEL BT_PROFILE_TEMP   		&none	&none   &none			&none   		&none			&none			&out OUT_BLE
+	&none 	&bt BT_CLR  &bt BT_SEL 0  	&bt BT_SEL 1   	&bt BT_SEL 2	&bt BT_SEL 3   	&bt BT_SEL 4   		&none	&none   &none			&none   		&none			&none			&out OUT_BLE
 	&none	&tog LAYER_MAC   	&tog LAYER_WIN   		&tog LAYER_WKL   		&tog LAYER_SETTINGS   &none   		&none   			&none   &none	&none   		&none			&none			&none   		&out OUT_TOG
 	&none	&none		&rgb_ug RGB_TOG &rgb_ug RGB_BRD	&rgb_ug RGB_BRI &rgb_ug RGB_EFR &rgb_ug  RGB_EFF	&rgb_ug RGB_HUD	&rgb_ug RGB_HUI	&rgb_ug RGB_SAD	&rgb_ug RGB_SAI	&rgb_ug RGB_SPD	&rgb_ug RGB_SPI	&rgb_ug RGB_COLOR_HSB(128,100,100)
 	&none	&none    	&none			&none					&none		&none  	&none			&none 		&none		&none
