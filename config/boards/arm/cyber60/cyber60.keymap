@@ -99,7 +99,7 @@
 	&trans			&trans  &kp UP   		&trans		&trans			&trans			&trans			&kp INS			&kp HOME			&kp PG_UP			&kp PSCRN	&kp SLCK	&kp PAUSE_BREAK	&trans
 	&trans 		&kp LEFT   	&kp DOWN		&kp RIGHT		&trans		&trans			&kp LEFT	&kp UP	&kp DOWN		&kp RIGHT		&trans	&trans	&trans		&trans
 	&trans 		&trans   	&trans   	&trans	 	&trans 		&trans	&trans				&kp DEL		&kp END					&kp PG_DN			&trans	&trans	&trans 		&trans
-	&kp CLCK 	&trans   	&trans             		&trans		&tog LAYER_SETTINGS		&trans  &trans  &trans		&kp K_APP	&trans
+	&kp CLCK 	&trans   	&trans             		&trans		&tog LAYER_SETTINGS		&trans  &trans  &kp RALT		&kp K_APP	&trans
 	&kp C_PP
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
