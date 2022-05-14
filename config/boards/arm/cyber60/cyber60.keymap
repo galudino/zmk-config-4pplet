@@ -3,7 +3,7 @@
 //	\brief		Keymap file for cyber60 keyboard PCB
 //
 //	\author		Gemuele Aludino
-//	\date		07 Dec 2021
+//	\date		14 May 2022
 //
 
 #include <behaviors.dtsi>
@@ -27,10 +27,6 @@
 #define BT_PROFILE_MAC		3
 #define BT_PROFILE_TEMP		4
 
-//
-//	Keymap uses PCB pads for AEK/AEK II, and WKL, with optional split right shift.
-//
-
 / {
 	keymap {
 		compatible = "zmk,keymap";
@@ -42,7 +38,7 @@
 	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
 	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
 	&lt LAYER_FUNCTION ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
+	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&kp BSLH
 	&kp LCTL 	 &kp LALT   &kp LGUI				&none			&kp SPC		&none  	&none			&kp  RGUI 	&kp RALT	&kp  RCTL
 	&kp C_PP
 			>;
@@ -56,7 +52,7 @@
 	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
 	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
 	&lt LAYER_FUNCTION ESC &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
+	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&kp BSLH
 	&kp LCTL 	 &kp LGUI   &kp LALT				&none			&kp SPC		&none  	&none			&kp  RALT 	&kp RGUI	&kp  RCTL
 	&kp C_PP
 			>;
@@ -70,7 +66,7 @@
 	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
 	&kp TAB 	 &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
 	&lt LAYER_FUNCTION ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
+	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&kp BSLH
 	&kp LCTL 	 &none   	&kp LALT				&none		&kp SPC		&none  	&none				&kp  RALT 	&none		&kp  RCTL
 	&kp C_PP
 			>;
