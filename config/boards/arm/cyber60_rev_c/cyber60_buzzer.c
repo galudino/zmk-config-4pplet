@@ -45,7 +45,6 @@ void _play(const struct device *pwm, uint32_t period)
 
     pwm_pin_set_usec(pwm, BUZZ_CHANNEL, 0, 0, BUZZ_FLAGS);
     k_sleep(K_MSEC(50));
-
 }
 
 void play_sound_1(const struct device *pwm)
@@ -85,7 +84,6 @@ void play_sound_5(const struct device *pwm)
 
 int buzzer_listener(const zmk_event_t *eh)
 {
-
     const struct zmk_ble_active_profile_changed *profile_ev = NULL;
     const struct device *pwm;
 
@@ -120,6 +118,7 @@ int buzzer_listener(const zmk_event_t *eh)
     return ZMK_EV_EVENT_BUBBLE;
 }
 
+#define CONFIG_ZMK_BLE
 ZMK_LISTENER(buzzer_output_status, buzzer_listener)
 #if defined(CONFIG_ZMK_BLE)
     ZMK_SUBSCRIPTION(buzzer_output_status, zmk_ble_active_profile_changed);
