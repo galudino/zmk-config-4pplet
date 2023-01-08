@@ -3,7 +3,7 @@
 //	\brief		Keymap file for cyber60 keyboard PCB
 //
 //	\author		Gemuele Aludino
-//	\date		07 Dec 2021
+//	\date		07 Jan 2023
 //
 
 #include <behaviors.dtsi>
@@ -19,18 +19,6 @@
 #define LAYER_WKL			2
 #define LAYER_SETTINGS		3
 #define LAYER_FUNCTION		4
-
-// Bluetooth profiles
-
-#define BT_PROFILE_PHONE 	0
-#define BT_PROFILE_TABLET 	1
-#define BT_PROFILE_PC 		2
-#define BT_PROFILE_MAC		3
-#define BT_PROFILE_TEMP		4
-
-//
-//	Keymap uses PCB pads for AEK/AEK II, and WKL, with optional split right shift.
-//
 
 / {
     keymap {

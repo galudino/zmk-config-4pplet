@@ -3,106 +3,137 @@
 //	\brief		Keymap file for cyber60 keyboard PCB
 //
 //	\author		Gemuele Aludino
-//	\date		07 Dec 2021
+//	\date		07 Jan 2023
 //
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/ext_power.h>
 
 // Keymap layers
+
 #define LAYER_MAC 			0
 #define LAYER_WIN			1
 #define LAYER_WKL			2
 #define LAYER_SETTINGS		3
 #define LAYER_FUNCTION		4
 
-// Bluetooth profiles
-#define BT_PROFILE_PHONE 	0
-#define BT_PROFILE_TABLET 	1
-#define BT_PROFILE_PC 		2
-#define BT_PROFILE_MAC		3
-#define BT_PROFILE_TEMP		4
-
-//
-//	Keymap uses PCB pads for AEK/AEK II, and WKL, with optional split right shift.
-//
-
 / {
-	keymap {
-		compatible = "zmk,keymap";
-		layer_mac {
-//
-// macOS-centric bottom row
-//
-			bindings = <
-	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
-	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
-	&lt LAYER_FUNCTION ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
-	&kp LCTL 	 &kp LALT   &kp LGUI				&none			&kp SPC		&none  	&none			&kp  RGUI 	&kp RALT	&kp  RCTL
-	&kp C_PP
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-		layer_win {
-//
-// Windows-centric bottom row
-//
-				bindings = <
-	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
-	&kp TAB &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
-	&lt LAYER_FUNCTION ESC &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
-	&kp LCTL 	 &kp LGUI   &kp LALT				&none			&kp SPC		&none  	&none			&kp  RALT 	&kp RGUI	&kp  RCTL
-	&kp C_PP
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-		layer_wkl {
-//
-// Windows-centric bottom row, sans winkey functionality
-//
-				bindings = <
-	&kp GRAV		 &kp NUM_1 	&kp NUM_2	&kp NUM_3 	&kp NUM_4 &kp NUM_5 &kp NUM_6 	&kp NUM_7 	&kp NUM_8 &kp NUM_9	&kp NUM_0	&kp MINUS	&kp EQL  	&none	&kp BKSP
-	&kp TAB 	 &kp   Q   	&kp   W   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&kp LBKT 	&kp RBKT	&kp BSLH
-	&lt LAYER_FUNCTION ESC 	 &kp   A   	&kp   S   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   K   &kp   L   &kp  SCLN  	&kp  QUOT   &none		&kp RET
-	&kp LSFT 	 &none		&kp   Z   	&kp   X   	&kp   C   &kp   V   &kp   B   	&kp   N   	&kp   M   &kp  CMMA &kp  DOT  	&kp  FSLH	&kp RSFT 	&mo LAYER_FUNCTION
-	&kp LCTL 	 &none   	&kp LALT				&none		&kp SPC		&none  	&none				&kp  RALT 	&none		&kp  RCTL
-	&kp C_PP
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-		layer_settings {
-//
-// Keyboard configuration (connectivity, lighting, bootloader, reset)
-//
-				bindings = <
-	&none		&kp K_MUTE	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_PREV	&kp C_PP 	&kp C_NEXT 	&kp K_STOP2 	&kp C_BRI_UP	&kp C_BRI_DEC	&none		&kp C_AL_MY_COMPUTER	&kp K_SLEEP 	&none	&kp C_PWR
-	&none 	&none				&rgb_ug RGB_SAI		&bt BT_SEL BT_PROFILE_PHONE   	&bt BT_SEL BT_PROFILE_TABLET	&bt BT_SEL BT_PROFILE_PC   	&bt BT_SEL BT_PROFILE_MAC	&bt BT_SEL BT_PROFILE_TEMP	&rgb_ug RGB_BRI   &out OUT_USB	&out OUT_BLE	&out OUT_TOG			&none			&none
-	&none	&rgb_ug RGB_HUD  	&rgb_ug RGB_SAD  	&rgb_ug RGB_HUI  				&bt BT_CLR   		&bt BT_PRV  		&bt BT_NXT 												  &rgb_ug RGB_SPD   &rgb_ug RGB_BRD	  &rgb_ug RGB_SPI   		&none			&none		&none   		&none
-	&none	&none	&none &none	&none &none &none	&none	&none	&rgb_ug RGB_EFR	&rgb_ug RGB_EFF	&rgb_ug RGB_TOG	&none	&rgb_ug RGB_COLOR_HSB(128,100,100)
-	&reset		&none   	&tog LAYER_MAC			&none		&tog LAYER_SETTINGS		&none  	&none				&tog LAYER_WIN 	&none	&bootloader
-	&none
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-		layer_function {
-//
-// Function keys, navigation cluster
-//
-			bindings = <
-	&kp ESC 	&kp F1		&kp F2 	 		&kp F3			&kp F4			&kp F5			&kp F6			&kp F7			&kp F8			&kp F9			&kp F10		&kp F11		&kp F12			&none 	&trans
-	&trans			&trans  &kp UP   		&trans		&trans			&trans			&trans			&kp INS			&kp HOME			&kp PG_UP			&kp PSCRN	&kp SLCK	&kp PAUSE_BREAK	&trans
-	&trans 		&kp LEFT   	&kp DOWN		&kp RIGHT		&trans		&trans			&kp LEFT	&kp UP	&kp DOWN		&kp RIGHT		&trans	&trans	&trans		&trans
-	&trans 		&trans   	&trans   	&trans	 	&trans 		&trans	&trans				&kp DEL		&kp END					&kp PG_DN			&trans	&trans	&trans 		&trans
-	&kp CLCK 	&trans   	&kp LGUI             		&trans		&tog LAYER_SETTINGS		&trans  &trans  &kp RALT		&kp K_APP	&trans
-	&kp C_PP
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-	};
+    keymap {
+        compatible = "zmk,keymap";
+
+        LAYER_MAC {
+            //
+            // macOS-centric bottom row
+            //
+
+            bindings = <
+    &gresc  &kp N1    &kp N2  &kp N3     &kp N4  &kp N5  &kp N6    &kp N7    &kp N8     &kp N9         &kp N0    &kp UNDERSCORE  &kp EQUAL  &kp GRAVE  &kp BACKSPACE
+   &kp TAB         &kp Q     &kp W   &kp E      &kp R   &kp T   &kp Y     &kp U     &kp I      &kp O          &kp P          &kp LBKT   &kp RBKT   &kp BSLH
+ &lt 3 ESC         &kp A     &kp S   &kp D      &kp F   &kp G   &kp H     &kp J     &kp K      &kp L  &kp SEMICOLON  &kp SINGLE_QUOTE      &none    &kp RET
+ &kp LSHFT         &none     &kp Z   &kp X      &kp C   &kp V   &kp B     &kp N     &kp M  &kp COMMA        &kp DOT                     &kp FSLH  &kp RSHFT          &mo 3
+ &kp LCTRL      &kp LALT  &kp LGUI   &none  &kp SPACE   &none   &none  &kp RGUI  &kp RALT  &kp RCTRL
+     &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        LAYER_WIN {
+            //
+            // Windows-centric bottom row
+            //
+
+            bindings = <
+ &trans    &trans    &trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans    &trans    &trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans
+ &trans    &trans    &trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans   &none  &trans
+ &trans     &none    &trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans          &trans  &trans  &trans
+ &trans  &kp LGUI  &kp LALT   &none  &trans   &none   &none  &kp RALT  &kp RGUI  &trans
+  &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        LAYER_SETTINGS {
+            //
+            // Keyboard configuration (connectivity, lighting, bootloader, reset)
+            //
+
+            bindings = <
+    &none       &kp K_MUTE     &kp C_VOL_DN     &kp C_VOL_UP  &kp C_PREV  &kp C_PP  &kp C_NEXT      &kp K_STOP2                    &kp C_BRI_UP    &kp C_BRI_DEC            &none  &kp C_AL_MY_COMPUTER      &kp K_SLEEP   &none  &kp C_PWR
+    &none            &none  &rgb_ug RGB_SAI            &none       &none     &none       &none            &none                 &rgb_ug RGB_BRI            &none            &none                 &none            &none   &none
+ &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUI       &none     &none       &none  &rgb_ug RGB_SPD                 &rgb_ug RGB_BRD  &rgb_ug RGB_SPI            &none                 &none            &none  &tog 7
+    &none            &none            &none            &none       &none     &none      &tog 5            &none  &rgb_ug RGB_COLOR_HSB(0,0,100)  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF                        &rgb_ug RGB_TOG  &tog 4     &tog 6
+   &tog 2            &none           &tog 0            &none      &trans     &none       &none           &tog 1                           &none            &none
+    &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        LAYER_FUNCTION {
+            //
+            // Function keys, navigation cluster
+            //
+
+            bindings = <
+ &kp ESC    &kp F1    &kp F2     &kp F3  &kp F4  &kp F5    &kp F6    &kp F7     &kp F8     &kp F9    &kp F10   &kp F11          &kp F12  &trans  &trans
+  &trans     &none    &kp UP      &none   &none   &none     &none   &kp INS   &kp HOME  &kp PG_UP  &kp PSCRN  &kp SLCK  &kp PAUSE_BREAK  &trans
+  &trans  &kp LEFT  &kp DOWN  &kp RIGHT   &none   &none  &kp LEFT    &kp UP   &kp DOWN  &kp RIGHT      &none     &none            &none  &trans
+  &trans     &none     &none      &none   &none   &none     &none   &kp DEL    &kp END  &kp PG_DN      &none                      &none  &trans  &trans
+  &tog 3    &trans  &kp LGUI      &none   &mo 2   &none     &none  &kp RALT  &kp K_APP     &trans
+   &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        LAYER_NUMBERS {
+            bindings = <
+  &none   &none   &none   &none   &none   &none      &none  &kp KP_N7        &kp KP_N8  &kp KP_N9       &none  &kp KP_MINUS    &kp KP_PLUS         &none       &kp KP_NUM
+  &none   &none   &none   &none   &none   &none      &none  &kp KP_N4        &kp KP_N5  &kp KP_N6       &none         &none          &none         &none
+  &kp CAPS   &none   &none   &none   &none   &none  &kp KP_N1  &kp KP_N2        &kp KP_N3      &none       &none         &none          &none  &kp KP_ENTER
+  &none   &none   &none   &none   &none   &none      &none      &none  &kp KP_NUMBER_0      &none  &kp KP_DOT                &kp KP_DIVIDE        &tog 4  &kp KP_MULTIPLY
+  &none   &none   &none   &none   &none   &none      &none      &none            &none      &none
+  &none
+            >;
+        };
+
+        LAYER_BT {
+            bindings = <
+ &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &none         &none         &none         &none   &none   &none    &bt BT_PRV    &bt BT_NXT         &none  &bt BT_CLR
+        &none         &none         &none         &none         &none   &none         &none  &bt BT_SEL 4         &none   &none   &none  &out OUT_USB  &out OUT_BLE         &none
+        &none         &none         &none         &none         &none   &none  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &none   &none         &none         &none  &out OUT_TOG
+        &none         &none         &none         &none         &none   &none        &tog 5         &none  &bt BT_SEL 0   &none   &none                       &none         &none       &none
+        &none         &none         &none         &none         &none   &none         &none         &none         &none   &none
+        &none
+            >;
+        };
+
+        LAYER_BAE {
+            bindings = <
+ &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans
+ &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &none  &trans
+ &trans   &none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &kp BACKSLASH
+ &trans  &trans  &trans   &none  &trans   &none  &trans  &trans  &trans  &trans
+  &none
+            >;
+        };
+
+        LAYER_RESET {
+            bindings = <
+       &to 0   &to 1   &none   &none   &none   &none   &to 6   &none   &none   &none   &none   &none   &none   &none   &none
+       &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none
+       &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none  &tog 7
+       &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none           &none   &none   &none
+ &bootloader   &none   &none   &none   &none   &none   &none   &none   &none  &reset
+       &none
+            >;
+        };
+    };
 };
