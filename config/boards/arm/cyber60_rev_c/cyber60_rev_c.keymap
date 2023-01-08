@@ -12,14 +12,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// Keymap layers
-
-#define LAYER_MAC 			0
-#define LAYER_WIN			1
-#define LAYER_WKL			2
-#define LAYER_SETTINGS		3
-#define LAYER_FUNCTION		4
-
 / {
     keymap {
         compatible = "zmk,keymap";
